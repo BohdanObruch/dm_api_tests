@@ -6,8 +6,6 @@ from src.api.controllers.common.search_controller import SearchApi
 from src.api.models.common.search_model import ObjectListEnvelope, Paging
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 fake = Faker()
 
 

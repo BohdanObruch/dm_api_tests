@@ -1,0 +1,285 @@
+name: 'Publish Allure reports to GitHub Pages'
+description: 'Download Allure results, generate a unified report, and deploy to GitHub Pages.'
+
+inputs:
+  report-title:
+    description: 'Title shown on the index page'
+    required: true
+  artifact-prefix-1:
+    description: 'Primary artifact prefix, for example: account'
+    required: true
+  suite-mode-1:
+    description: 'Expected suite mode for prefix 1: smoke, regression, all'
+    required: false
+    default: 'all'
+  artifact-prefix-2:
+    description: 'Optional second artifact prefix, for example: common'
+    required: false
+    default: ''
+  suite-mode-2:
+    description: 'Expected suite mode for prefix 2: smoke, regression, all'
+    required: false
+    default: 'all'
+  artifact-prefix-3:
+    description: 'Optional third artifact prefix, for example: community'
+    required: false
+    default: ''
+  suite-mode-3:
+    description: 'Expected suite mode for prefix 3: smoke, regression, all'
+    required: false
+    default: 'all'
+  artifact-prefix-4:
+    description: 'Optional fourth artifact prefix'
+    required: false
+    default: ''
+  suite-mode-4:
+    description: 'Expected suite mode for prefix 4: smoke, regression, all'
+    required: false
+    default: 'all'
+  artifact-prefix-5:
+    description: 'Optional fifth artifact prefix'
+    required: false
+    default: ''
+  suite-mode-5:
+    description: 'Expected suite mode for prefix 5: smoke, regression, all'
+    required: false
+    default: 'all'
+  artifact-prefix-6:
+    description: 'Optional sixth artifact prefix'
+    required: false
+    default: ''
+  suite-mode-6:
+    description: 'Expected suite mode for prefix 6: smoke, regression, all'
+    required: false
+    default: 'all'
+
+outputs:
+  page_url:
+    description: 'Published GitHub Pages URL'
+    value: ${{ steps.deployment.outputs.page_url }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Define Pages artifact name
+      id: pages-artifact
+      shell: bash
+      run: echo "name=github-pages-${{ github.run_id }}-${{ github.run_attempt }}" >> "$GITHUB_OUTPUT"
+
+    - name: Download ${{ inputs.artifact-prefix-1 }} smoke Allure results
+      if: inputs.suite-mode-1 != 'regression'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-1 }}-smoke-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-1 }}/smoke
+
+    - name: Download ${{ inputs.artifact-prefix-1 }} regression Allure results
+      if: inputs.suite-mode-1 != 'smoke'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-1 }}-regression-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-1 }}/regression
+
+    - name: Download ${{ inputs.artifact-prefix-2 }} smoke Allure results
+      if: inputs.artifact-prefix-2 != '' && inputs.suite-mode-2 != 'regression'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-2 }}-smoke-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-2 }}/smoke
+
+    - name: Download ${{ inputs.artifact-prefix-2 }} regression Allure results
+      if: inputs.artifact-prefix-2 != '' && inputs.suite-mode-2 != 'smoke'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-2 }}-regression-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-2 }}/regression
+
+    - name: Download ${{ inputs.artifact-prefix-3 }} smoke Allure results
+      if: inputs.artifact-prefix-3 != '' && inputs.suite-mode-3 != 'regression'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-3 }}-smoke-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-3 }}/smoke
+
+    - name: Download ${{ inputs.artifact-prefix-3 }} regression Allure results
+      if: inputs.artifact-prefix-3 != '' && inputs.suite-mode-3 != 'smoke'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-3 }}-regression-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-3 }}/regression
+
+    - name: Download ${{ inputs.artifact-prefix-4 }} smoke Allure results
+      if: inputs.artifact-prefix-4 != '' && inputs.suite-mode-4 != 'regression'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-4 }}-smoke-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-4 }}/smoke
+
+    - name: Download ${{ inputs.artifact-prefix-4 }} regression Allure results
+      if: inputs.artifact-prefix-4 != '' && inputs.suite-mode-4 != 'smoke'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-4 }}-regression-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-4 }}/regression
+
+    - name: Download ${{ inputs.artifact-prefix-5 }} smoke Allure results
+      if: inputs.artifact-prefix-5 != '' && inputs.suite-mode-5 != 'regression'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-5 }}-smoke-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-5 }}/smoke
+
+    - name: Download ${{ inputs.artifact-prefix-5 }} regression Allure results
+      if: inputs.artifact-prefix-5 != '' && inputs.suite-mode-5 != 'smoke'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-5 }}-regression-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-5 }}/regression
+
+    - name: Download ${{ inputs.artifact-prefix-6 }} smoke Allure results
+      if: inputs.artifact-prefix-6 != '' && inputs.suite-mode-6 != 'regression'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-6 }}-smoke-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-6 }}/smoke
+
+    - name: Download ${{ inputs.artifact-prefix-6 }} regression Allure results
+      if: inputs.artifact-prefix-6 != '' && inputs.suite-mode-6 != 'smoke'
+      continue-on-error: true
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifact-prefix-6 }}-regression-allure-results
+        path: allure-results/${{ inputs.artifact-prefix-6 }}/regression
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Generate unified Allure 3 report
+      shell: bash
+      run: |
+        set -euo pipefail
+        mkdir -p pages
+
+        prefixes=("${{ inputs.artifact-prefix-1 }}")
+        if [ -n "${{ inputs.artifact-prefix-2 }}" ]; then
+          prefixes+=("${{ inputs.artifact-prefix-2 }}")
+        fi
+        if [ -n "${{ inputs.artifact-prefix-3 }}" ]; then
+          prefixes+=("${{ inputs.artifact-prefix-3 }}")
+        fi
+        if [ -n "${{ inputs.artifact-prefix-4 }}" ]; then
+          prefixes+=("${{ inputs.artifact-prefix-4 }}")
+        fi
+        if [ -n "${{ inputs.artifact-prefix-5 }}" ]; then
+          prefixes+=("${{ inputs.artifact-prefix-5 }}")
+        fi
+        if [ -n "${{ inputs.artifact-prefix-6 }}" ]; then
+          prefixes+=("${{ inputs.artifact-prefix-6 }}")
+        fi
+
+        result_dirs=()
+        for prefix in "${prefixes[@]}"; do
+          for suite in smoke regression; do
+            result_dir="allure-results/${prefix}/${suite}"
+            if [ -d "$result_dir" ] && find "$result_dir" -type f -name '*-result.json' | grep -q .; then
+              result_dirs+=("$result_dir")
+            fi
+          done
+        done
+
+        if [ "${#result_dirs[@]}" -gt 0 ]; then
+          merged_dir="allure-results/merged"
+          rm -rf "$merged_dir"
+          mkdir -p "$merged_dir"
+
+          for dir in "${result_dirs[@]}"; do
+            cp -R "$dir"/. "$merged_dir"/
+          done
+
+          python -c '
+        import json
+        from pathlib import Path
+
+        root = Path("allure-results/merged")
+        by_key = {}
+        to_delete = []
+
+        for file in root.glob("*-result.json"):
+            try:
+                data = json.loads(file.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+
+            history_id = data.get("historyId")
+            full_name = data.get("fullName") or data.get("name") or file.name
+            params = data.get("parameters") or []
+            params_key = tuple(sorted((p.get("name"), str(p.get("value"))) for p in params if isinstance(p, dict)))
+            key = history_id or (full_name, params_key)
+
+            time = data.get("time") or {}
+            stop = int(time.get("stop") or 0)
+            start = int(time.get("start") or 0)
+            rank = (stop, start)
+
+            if key not in by_key:
+                by_key[key] = (rank, file)
+                continue
+
+            existing_rank, existing_file = by_key[key]
+            if rank >= existing_rank:
+                to_delete.append(existing_file)
+                by_key[key] = (rank, file)
+            else:
+                to_delete.append(file)
+
+        for file in to_delete:
+            try:
+                file.unlink()
+            except FileNotFoundError:
+                pass
+        '
+
+          npx --yes allure@3 generate "$merged_dir" -o pages
+        else
+          printf '%s\n' \
+            '<!doctype html>' \
+            '<html lang="en">' \
+            '<head>' \
+            '  <meta charset="UTF-8" />' \
+            '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' \
+            '  <title>No Allure results</title>' \
+            '</head>' \
+            '<body>' \
+            '  <h1>No Allure results available</h1>' \
+            '  <p>No suite produced valid <code>*-result.json</code> files in this run.</p>' \
+            '</body>' \
+            '</html>' > pages/index.html
+        fi
+
+    - name: Configure Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        name: ${{ steps.pages-artifact.outputs.name }}
+        path: pages
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
+      with:
+        artifact_name: ${{ steps.pages-artifact.outputs.name }}

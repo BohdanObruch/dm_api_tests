@@ -1,0 +1,40 @@
+name: Run Account Tests
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: account / ${{ matrix.suite }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [smoke, regression]
+
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+      MAIL_HOG_URL: ${{ secrets.MAIL_HOG_URL }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup environment
+        uses: ./.github/actions/setup
+
+      - name: Run tests
+        run: >
+          uv run pytest tests/api/account
+          -m ${{ matrix.suite }}
+          -n 3
+          --alluredir test-result/allure-results/account/${{ matrix.suite }}
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: account-${{ matrix.suite }}-allure-results
+          path: test-result/allure-results/account/${{ matrix.suite }}
+          if-no-files-found: warn

@@ -8,8 +8,6 @@ from src.api.models.account.account_model import UserEnvelope
 from src.api.models.account.login_model import LoginCredentials
 from tests.fixtures.allure_helpers import hidden_env, masked_env, step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_register_success(account_api: AccountApi, random_user_credentials: dict[str, str]):
@@ -80,7 +78,9 @@ def test_reset_password_success(account_api: AccountApi, fresh_session_user):
         masked_env("LOGIN", "login")
         masked_env("EMAIL", "email")
     with step("Reset password for existing user"):
-        reset_result = account_api.reset_password({"login": fresh_session_user.login, "email": fresh_session_user.email})
+        reset_result = account_api.reset_password(
+            {"login": fresh_session_user.login, "email": fresh_session_user.email}
+        )
     with step("Verify reset response exists"):
         assert reset_result is not None
 

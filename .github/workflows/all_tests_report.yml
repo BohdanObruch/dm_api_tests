@@ -1,0 +1,92 @@
+name: all_tests_report
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup environment
+        uses: ./.github/actions/setup
+
+      - name: Ruff lint
+        run: uv run ruff check .
+
+  run-account:
+    name: run-account
+    uses: ./.github/workflows/run-account-tests.yml
+    secrets: inherit
+
+  run-common:
+    name: run-common
+    uses: ./.github/workflows/run-common-tests.yml
+    secrets: inherit
+
+  run-community:
+    name: run-community
+    uses: ./.github/workflows/run-community-tests.yml
+    secrets: inherit
+
+  run-forum:
+    name: run-forum
+    uses: ./.github/workflows/run-forum-tests.yml
+    secrets: inherit
+
+  run-game:
+    name: run-game
+    uses: ./.github/workflows/run-game-tests.yml
+    secrets: inherit
+
+  run-messaging:
+    name: run-messaging
+    uses: ./.github/workflows/run-messaging-tests.yml
+    secrets: inherit
+
+  publish-report:
+    name: publish-report
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - lint
+      - run-account
+      - run-common
+      - run-community
+      - run-forum
+      - run-game
+      - run-messaging
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - name: Publish Allure to GitHub Pages
+        id: deploy
+        uses: ./.github/actions/publish-allure-pages
+        with:
+          report-title: "API test report"
+          artifact-prefix-1: account
+          artifact-prefix-2: common
+          artifact-prefix-3: community
+          artifact-prefix-4: forum
+          artifact-prefix-5: game
+          artifact-prefix-6: messaging

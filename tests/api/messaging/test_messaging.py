@@ -5,8 +5,6 @@ from src.api.controllers.messaging.messaging_controller import MessagingApi
 from src.api.models.messaging.messaging_model import ConversationListEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_get_conversations_returns_list(messaging_api: MessagingApi):

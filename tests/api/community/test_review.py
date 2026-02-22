@@ -5,8 +5,6 @@ from src.api.controllers.community.review_controller import ReviewApi
 from src.api.models.community.review_model import ReviewListEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_list_reviews(review_api):

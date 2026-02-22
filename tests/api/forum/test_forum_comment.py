@@ -5,9 +5,8 @@ from faker import Faker
 from src.api.controllers.forum.comment_controller import CommentController
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 fake = Faker()
+
 
 @pytest.mark.smoke
 def test_get_comment_not_found(forum_comment_api):
@@ -96,7 +95,9 @@ def test_delete_comment_not_found(forum_comment_api):
 
 
 @pytest.mark.regression
-def test_like_comment_success(forum_comment_api, forum_comment_api_liker, created_comment, forum_another_user_login: str):
+def test_like_comment_success(
+    forum_comment_api, forum_comment_api_liker, created_comment, forum_another_user_login: str
+):
     with step("Like comment from another user"):
         like_response = forum_comment_api_liker.like_comment(id=created_comment.id)
     with step("Verify like response user"):
@@ -130,7 +131,9 @@ def test_like_comment_not_found(forum_comment_api):
 
 
 @pytest.mark.regression
-def test_unlike_comment_success(forum_comment_api, forum_comment_api_liker, created_comment, forum_another_user_login: str):
+def test_unlike_comment_success(
+    forum_comment_api, forum_comment_api_liker, created_comment, forum_another_user_login: str
+):
     with step("Like comment before unlike flow"):
         forum_comment_api_liker.like_comment(id=created_comment.id)
     with step("Unlike comment"):

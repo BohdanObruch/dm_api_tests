@@ -5,8 +5,6 @@ from src.api.controllers.community.userupload_controller import UserUploadApi
 from src.api.models.community.userupload_model import UserDetailsEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_post_user_upload_success_or_known_server_error(

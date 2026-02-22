@@ -6,8 +6,6 @@ from src.api.controllers.account.login_controller import LoginApi
 from src.api.models.account.login_model import LoginCredentials, UserEnvelope
 from tests.fixtures.allure_helpers import hidden_env, masked_env, step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_login_success(login_api: LoginApi, user_credentials: dict):

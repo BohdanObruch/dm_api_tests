@@ -4,8 +4,6 @@ import requests
 from src.api.controllers.game.post_controller import PostApi
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.regression
 def test_get_post_not_found_returns_error(post_api):

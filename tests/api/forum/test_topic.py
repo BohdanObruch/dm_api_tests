@@ -8,8 +8,6 @@ from src.api.controllers.forum.topic_controller import TopicController
 from src.api.models.forum.topic_model import Comment, CommentListEnvelope, Topic, TopicEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 fake = Faker()
 
 

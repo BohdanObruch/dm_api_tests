@@ -5,8 +5,6 @@ from src.api.controllers.community.user_controller import UserApi
 from src.api.models.community.user_model import UserDetailsEnvelope, UserEnvelope, UserListEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_get_users_list(user_api):

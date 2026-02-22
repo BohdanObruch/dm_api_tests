@@ -5,8 +5,6 @@ from src.api.controllers.messaging.chat_controller import ChatApi
 from src.api.models.messaging.chat_model import ChatMessageListEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_get_chat_messages_with_pagination(chat_api: ChatApi) -> None:

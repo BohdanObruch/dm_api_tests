@@ -5,8 +5,6 @@ from src.api.controllers.community.poll_controller import PollApi
 from src.api.models.community.poll_model import PollListEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_create_poll_forbidden_for_regular_user(poll_api, valid_poll_payload: dict):

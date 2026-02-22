@@ -7,8 +7,6 @@ from src.api.controllers.forum.forum_controller import ForumApi
 from src.api.models.forum.forum_model import ForumEnvelope, ForumListEnvelope, TopicListEnvelope, UserListEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_get_fora_list(forum_api):

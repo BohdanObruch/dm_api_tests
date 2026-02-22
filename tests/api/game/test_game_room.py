@@ -4,8 +4,6 @@ import requests
 from src.api.controllers.game.room_controller import RoomApi
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.regression
 def test_get_room_not_found_returns_410(room_api):

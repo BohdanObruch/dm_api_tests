@@ -5,8 +5,6 @@ from src.api.controllers.game.game_controller import GameApi
 from src.api.models.game.game_model import GameListEnvelope, TagListEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_get_games_list(game_api):

@@ -4,8 +4,6 @@ import requests
 from src.api.controllers.game.character_controller import CharacterApi
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.regression
 def test_get_character_not_found_returns_410(character_api):

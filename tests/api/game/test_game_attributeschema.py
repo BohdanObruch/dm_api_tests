@@ -4,8 +4,6 @@ import requests
 from src.api.models.game.attributeschema_model import AttributeSchemaEnvelope, AttributeSchemaListEnvelope
 from tests.fixtures.allure_helpers import step
 
-pytestmark = [pytest.mark.api]
-
 
 @pytest.mark.smoke
 def test_create_attribute_schema_roundtrip(attribute_schema_api, valid_attribute_schema_payload):
