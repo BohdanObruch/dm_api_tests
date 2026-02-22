@@ -1,7 +1,7 @@
 [project]
 name = "dm-api-tests"
 version = "0.1.0"
-description = "Add your description here"
+description = "Comprehensive API testing framework for the DM.API with support for account, community, forum, game, and messaging modules"
 requires-python = ">=3.14"
 dependencies = [
     "faker==40.4.0",
@@ -29,7 +29,7 @@ packages = ["src/api"]
 [tool.pytest.ini_options]
 minversion = "8.0"
 testpaths = ["tests"]
-python_files = ["test_*.py", "*_test.py", "*_tests.py"]
+python_files = ["test_*.py", "*_test.py"]
 python_functions = ["test_*"]
 norecursedirs = [".git", ".venv", ".idea", "__pycache__", "build", "dist"]
 addopts = [
@@ -42,7 +42,6 @@ addopts = [
 markers = [
     "smoke: Quick smoke tests for basic functionality",
     "regression: Full regression test suite",
-    "api: API tests using requests client",
 ]
 console_output_style = "progress"
 log_cli = true
@@ -88,9 +87,9 @@ known-first-party = ["src", "tests"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = [
-    "B011",   # allow assert in tests
-    "F821",   # allow forward/missing typing names in generated tests
-    "F841",   # allow intermediate variables in tests
+    "B011", # allow assert in tests
+    "F821", # allow forward/missing typing names in generated tests
+    "F841", # allow intermediate variables in tests
     "SIM101", # keep explicit assertions style
     "SIM105", # allow try/except cleanup in tests
 ]
