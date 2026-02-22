@@ -1,6 +1,7 @@
 import pytest
 import requests
 
+from src.api.controllers.community.review_controller import ReviewApi
 from src.api.models.community.review_model import ReviewListEnvelope
 from tests.fixtures.allure_helpers import step
 
@@ -54,3 +55,30 @@ def test_delete_review_by_invalid_id_returns_410(review_api):
         review_api.delete(id="00000000-0000-0000-0000-000000000000")
     with step("Verify status code is 401 or 410"):
         assert exc_info.value.response.status_code in (401, 410)
+
+
+@pytest.mark.regression
+def test_create_review_without_token_returns_401_or_403(configs, valid_review_payload: dict):
+    api = ReviewApi(base_url=configs.app_base_url)
+    with step("Create review without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.create(payload=valid_review_payload)
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_update_review_without_token_returns_401_or_403(configs, valid_review_payload: dict):
+    api = ReviewApi(base_url=configs.app_base_url)
+    with step("Update review without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.update(id="00000000-0000-0000-0000-000000000000", payload=valid_review_payload)
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_delete_review_without_token_returns_401_or_403(configs):
+    api = ReviewApi(base_url=configs.app_base_url)
+    with step("Delete review without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.delete(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)

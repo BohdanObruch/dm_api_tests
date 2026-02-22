@@ -74,10 +74,10 @@ def forum_comment_api_liker(configs: Config, forum_another_auth_token: str) -> C
 def valid_forum_id(forum_api: ForumApi) -> str:
     fora = forum_api.get_fora()
     if not fora.resources:
-        pytest.skip("No fora available for forum tests.")
+        pytest.fail("No fora available for forum tests.")
     forum_id = fora.resources[0].id
     if not forum_id:
-        pytest.skip("Forum id is missing in API response.")
+        pytest.fail("Forum id is missing in API response.")
     return forum_id
 
 
@@ -102,7 +102,7 @@ def created_topic(forum_api: ForumApi, topic_api: TopicController, valid_forum_i
 
     created = created_envelope.resource
     if created is None or not created.id:
-        pytest.skip("Topic was not created or id is missing in response.")
+        pytest.fail("Topic was not created or id is missing in response.")
 
     yield created
 
@@ -124,7 +124,7 @@ def created_comment(
 
     created = created_envelope.resource
     if created is None or not created.id:
-        pytest.skip("Comment was not created or id is missing in response.")
+        pytest.fail("Comment was not created or id is missing in response.")
 
     yield created
 

@@ -1,16 +1,63 @@
 from __future__ import annotations
 
+import atexit
 import json
+import os
+from threading import Lock
+from typing import ClassVar
 
 import requests
+from requests.adapters import HTTPAdapter
+
+
+def _env_int(name: str, default: int) -> int:
+    value = os.getenv(name)
+    if not value:
+        return default
+    try:
+        parsed = int(value)
+    except ValueError:
+        return default
+    return parsed if parsed > 0 else default
 
 
 class BaseController:
+    _session_lock: ClassVar[Lock] = Lock()
+    _shared_sessions: ClassVar[dict[str, requests.Session]] = {}
+
+    @classmethod
+    def _create_session(cls) -> requests.Session:
+        session = requests.Session()
+        adapter = HTTPAdapter(
+            pool_connections=_env_int("DM_HTTP_POOL_CONNECTIONS", 8),
+            pool_maxsize=_env_int("DM_HTTP_POOL_MAXSIZE", 8),
+            pool_block=True,
+        )
+        session.mount("http://", adapter)
+        session.mount("https://", adapter)
+        return session
+
+    @classmethod
+    def _get_or_create_session(cls, base_url: str) -> requests.Session:
+        with cls._session_lock:
+            session = cls._shared_sessions.get(base_url)
+            if session is None:
+                session = cls._create_session()
+                cls._shared_sessions[base_url] = session
+            return session
+
+    @classmethod
+    def close_all_sessions(cls) -> None:
+        with cls._session_lock:
+            for session in cls._shared_sessions.values():
+                session.close()
+            cls._shared_sessions.clear()
+
     def __init__(self, base_url: str, auth_token: str | None = None, default_headers: dict[str, str] | None = None):
         self.base_url = base_url.rstrip("/")
         self.auth_token: str | None = auth_token
         self.default_headers = default_headers or {}
-        self._session = requests.Session()
+        self._session = self._get_or_create_session(self.base_url)
 
     def _url(self, endpoint: str) -> str:
         return f"{self.base_url}{endpoint}"
@@ -120,3 +167,6 @@ class BaseController:
         if response.content:
             return self._response_json(response)
         return None
+
+
+atexit.register(BaseController.close_all_sessions)

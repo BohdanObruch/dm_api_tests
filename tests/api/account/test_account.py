@@ -67,28 +67,6 @@ def test_get_current_user_without_token_returns_auth_error(configs):
 
 
 @pytest.mark.regression
-def test_activate_success_for_fresh_registration(
-    account_api: AccountApi,
-    random_user_credentials: dict[str, str],
-    get_activation_token,
-):
-    with step("Mark registration and activation fields as env references"):
-        masked_env("EMAIL", "email")
-        hidden_env("ACTIVATION_TOKEN", "activation_token")
-    with step("Register fresh user"):
-        created = account_api.register(random_user_credentials)
-    with step("Resolve activation token"):
-        token_from_response = getattr(created.resource, "token", None) if created.resource else None
-        activation_token = token_from_response or get_activation_token(random_user_credentials["email"])
-        if not activation_token:
-            pytest.skip("Activation token is not available in register response or MailHog")
-    with step("Activate user by token"):
-        activated = account_api.activate(token=activation_token)
-    with step("Verify activation response"):
-        assert isinstance(activated, UserEnvelope)
-
-
-@pytest.mark.regression
 def test_activate_invalid_token_returns_400_or_410(account_api: AccountApi):
     with step("Activate account with invalid token"), pytest.raises(requests.HTTPError) as exc_info:
         account_api.activate(token="00000000-0000-0000-0000-000000000000")

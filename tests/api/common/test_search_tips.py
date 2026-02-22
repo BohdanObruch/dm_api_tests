@@ -2,6 +2,7 @@ import pytest
 import requests
 from faker import Faker
 
+from src.api.controllers.common.search_controller import SearchApi
 from src.api.models.common.search_model import ObjectListEnvelope, Paging
 from tests.fixtures.allure_helpers import step
 
@@ -71,3 +72,16 @@ def test_search_invalid_query_handling(search_api):
 
     with step("Verify response status code is expected for invalid query"):
         assert exc_info.value.response.status_code in (400, 500)
+
+
+@pytest.mark.regression
+def test_search_without_token_returns_valid_response_or_auth_error(configs):
+    api = SearchApi(base_url=configs.app_base_url)
+    with step("Call search without token"):
+        try:
+            result = api.search(query=fake.word(), size=3)
+        except requests.HTTPError as exc_info:
+            assert exc_info.response.status_code in (401, 403)
+            return
+    with step("If endpoint is public, verify normal response structure"):
+        assert isinstance(result, ObjectListEnvelope)

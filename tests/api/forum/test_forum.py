@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 import requests
 
+from src.api.controllers.forum.forum_controller import ForumApi
 from src.api.models.forum.forum_model import ForumEnvelope, ForumListEnvelope, TopicListEnvelope, UserListEnvelope
 from tests.fixtures.allure_helpers import step
 
@@ -81,3 +82,21 @@ def test_get_topics_forum_not_found(forum_api):
         forum_api.get_topics(id="unknown_forum_id")
     with step("Verify status code is 410"):
         assert exc_info.value.response.status_code == 410
+
+
+@pytest.mark.regression
+def test_post_topic_without_token_returns_401_or_403(configs, valid_forum_id: str, valid_topic_payload: dict):
+    api = ForumApi(base_url=configs.app_base_url)
+    with step("Post topic without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.post_topic(id=valid_forum_id, payload=valid_topic_payload)
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_read_forum_comments_without_token_returns_401_or_403(configs, valid_forum_id: str):
+    api = ForumApi(base_url=configs.app_base_url)
+    with step("Mark forum comments as read without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.read_forum_comments(id=valid_forum_id)
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)

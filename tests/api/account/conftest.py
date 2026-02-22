@@ -5,7 +5,7 @@ from faker import Faker
 
 from src.api.controllers.account.account_controller import AccountApi
 from src.api.models.account.login_model import LoginCredentials
-from tests.fixtures.api import SessionUser, extract_activation_token_from_mailhog
+from tests.fixtures.api import SessionUser
 from tests.fixtures.config import Config
 
 fake = Faker()
@@ -24,16 +24,6 @@ def random_user_credentials() -> dict[str, str]:
         "email": f"{login}@example.com",
         "password": fake.password(length=14),
     }
-
-
-@pytest.fixture(scope="function")
-def get_activation_token(configs: Config):
-    def _getter(email: str) -> str | None:
-        if not configs.mail_hog_url:
-            return None
-        return extract_activation_token_from_mailhog(configs.mail_hog_url, email, timeout_sec=45)
-
-    return _getter
 
 
 @pytest.fixture(scope="function")

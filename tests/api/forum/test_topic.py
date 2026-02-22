@@ -4,6 +4,7 @@ import pytest
 import requests
 from faker import Faker
 
+from src.api.controllers.forum.topic_controller import TopicController
 from src.api.models.forum.topic_model import Comment, CommentListEnvelope, Topic, TopicEnvelope
 from tests.fixtures.allure_helpers import step
 
@@ -168,3 +169,22 @@ def test_read_topic_comments_not_found(topic_api):
             topic_api.read_topic_comments(id=non_existent_topic_id)
     with step("Verify status code is 410"):
         assert excinfo.value.response.status_code == 410
+
+
+@pytest.mark.regression
+def test_post_topic_like_without_token_returns_401_or_403(configs, created_topic: Topic):
+    api = TopicController(base_url=configs.app_base_url)
+    with step("Like topic without auth token"), pytest.raises(requests.HTTPError) as excinfo:
+        api.post_topic_like(id=created_topic.id)
+    with step("Verify status code is 401 or 403"):
+        assert excinfo.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_post_forum_comment_without_token_returns_401_or_403(configs, created_topic: Topic):
+    api = TopicController(base_url=configs.app_base_url)
+    payload = {"text": fake.sentence()}
+    with step("Post topic comment without auth token"), pytest.raises(requests.HTTPError) as excinfo:
+        api.post_forum_comment(id=created_topic.id, payload=payload)
+    with step("Verify status code is 401 or 403"):
+        assert excinfo.value.response.status_code in (401, 403)

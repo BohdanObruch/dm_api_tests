@@ -1,6 +1,7 @@
 import pytest
 import requests
 
+from src.api.controllers.game.game_controller import GameApi
 from src.api.models.game.game_model import GameListEnvelope, TagListEnvelope
 from tests.fixtures.allure_helpers import step
 
@@ -66,3 +67,63 @@ def test_delete_game_not_found_returns_410(game_api):
         game_api.delete_game(id="00000000-0000-0000-0000-000000000000")
     with step("Verify status code is 410"):
         assert exc_info.value.response.status_code == 410
+
+
+@pytest.mark.regression
+def test_get_own_games_without_token_returns_401_or_403(configs):
+    api = GameApi(base_url=configs.app_base_url)
+    with step("Get own games without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.get_own_games()
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_get_game_details_not_found_returns_410(game_api):
+    with step("Request non-existing game details by id"), pytest.raises(requests.HTTPError) as exc_info:
+        game_api.get_game_details(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 410"):
+        assert exc_info.value.response.status_code == 410
+
+
+@pytest.mark.regression
+def test_get_game_readers_not_found_returns_410(game_api):
+    with step("Request readers for non-existing game"), pytest.raises(requests.HTTPError) as exc_info:
+        game_api.get_readers(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 410"):
+        assert exc_info.value.response.status_code == 410
+
+
+@pytest.mark.regression
+def test_get_game_blacklist_not_found_returns_410(game_api):
+    with step("Request blacklist for non-existing game"), pytest.raises(requests.HTTPError) as exc_info:
+        game_api.get_blacklist(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 410"):
+        assert exc_info.value.response.status_code == 410
+
+
+@pytest.mark.regression
+def test_post_reader_without_token_returns_401_or_403(configs):
+    api = GameApi(base_url=configs.app_base_url)
+    with step("Add reader without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.post_reader(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_delete_reader_without_token_returns_401_or_403(configs):
+    api = GameApi(base_url=configs.app_base_url)
+    with step("Delete reader without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.delete_reader(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_post_blacklist_without_token_returns_401_or_403(configs):
+    api = GameApi(base_url=configs.app_base_url)
+    with step("Add blacklist record without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.post_blacklist(id="00000000-0000-0000-0000-000000000000", payload={"login": "non_existent_user"})
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)

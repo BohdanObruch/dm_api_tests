@@ -5,24 +5,19 @@ from enum import Enum
 
 from pydantic import BaseModel, ConfigDict, Field
 
-
-class Paging(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    pages: int | None = None
-    current: int | None = None
-    size: int | None = None
-    number: int | None = None
-    total: int | None = None
-
-
-class UserRole(str, Enum):
-    Guest = "Guest"
-    Player = "Player"
-    Administrator = "Administrator"
-    NannyModerator = "NannyModerator"
-    RegularModerator = "RegularModerator"
-    SeniorModerator = "SeniorModerator"
+from src.api.models.game.common_model import (
+    AttributeSchema,
+    AttributeSpecificationType,
+    AttributeValueSpecification,
+    BadRequestError,
+    BbParseMode,
+    GeneralError,
+    Paging,
+    Rating,
+    SchemaType,
+    User,
+)
+from src.api.models.shared.base_model import ResourceEnvelope, ResourceListEnvelope
 
 
 class GameStatus(str, Enum):
@@ -36,21 +31,9 @@ class GameStatus(str, Enum):
     Moderation = "Moderation"
 
 
-class BbParseMode(str, Enum):
-    Common = "Common"
-    Info = "Info"
-    Post = "Post"
-    Chat = "Chat"
-
-
 class CommentariesAccessMode(str, Enum):
     Public = "Public"
     Readonly = "Readonly"
-    Private = "Private"
-
-
-class SchemaType(str, Enum):
-    Public = "Public"
     Private = "Private"
 
 
@@ -64,88 +47,32 @@ class GameParticipation(str, Enum):
     Owner = "Owner"
 
 
-class AttributeSpecificationType(str, Enum):
-    Number = "Number"
-    String = "String"
-    List = "List"
-
-
-class AttributeValueSpecification(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    value: str | None = None
-    modifier: int | None = None
-
-
-class AttributeSpecification(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    id: str | None = None
-    title: str | None = None
-    required: bool | None = None
-    type: AttributeSpecificationType | None = None
-    minValue: int | None = None
-    maxValue: int | None = None
-    maxLength: int | None = None
-    values: list[AttributeValueSpecification] | None = None
-
-
-class Rating(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    enabled: bool | None = None
-    quality: int | None = None
-    quantity: int | None = None
-
-
-class User(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    login: str | None = None
-    roles: list[UserRole] | None = None
-    rating: Rating | None = None
-
-
 class InfoBbText(BaseModel):
     model_config = ConfigDict(extra="allow")
 
     value: str | None = None
-    parseMode: BbParseMode | None = None
+    parse_mode: BbParseMode | None = Field(default=None, alias="parseMode")
 
 
 class GamePrivacySettings(BaseModel):
     model_config = ConfigDict(extra="allow")
 
-    viewTemper: bool | None = None
-    viewStory: bool | None = None
-    viewSkills: bool | None = None
-    viewInventory: bool | None = None
-    viewPrivates: bool | None = None
-    viewDice: bool | None = None
-    commentariesAccess: CommentariesAccessMode | None = None
-
-
-class AttributeSchema(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    id: str | None = None
-    title: str | None = None
-    author: User | None = None
-    type: SchemaType | None = None
-    specifications: list[AttributeSpecification] | None = None
+    view_temper: bool | None = Field(default=None, alias="viewTemper")
+    view_story: bool | None = Field(default=None, alias="viewStory")
+    view_skills: bool | None = Field(default=None, alias="viewSkills")
+    view_inventory: bool | None = Field(default=None, alias="viewInventory")
+    view_privates: bool | None = Field(default=None, alias="viewPrivates")
+    view_dice: bool | None = Field(default=None, alias="viewDice")
+    commentaries_access: CommentariesAccessMode | None = Field(default=None, alias="commentariesAccess")
 
 
 class Tag(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
     id: str | None = None
     title: str | None = None
     category: str | None = None
 
 
 class Game(BaseModel):
-    model_config = ConfigDict(extra="allow", populate_by_name=True)
-
     id: str | None = None
     title: str | None = None
     system: str | None = None
@@ -156,60 +83,44 @@ class Game(BaseModel):
     master: User | None = None
     assistant: User | None = None
     nanny: User | None = None
-    pendingAssistant: User | None = None
+    pending_assistant: User | None = Field(default=None, alias="pendingAssistant")
     participation: list[GameParticipation] | None = None
     tags: list[Tag] | None = None
     info: InfoBbText | None = None
     notes: str | None = None
-    privacySettings: GamePrivacySettings | None = None
-    unreadPostsCount: int | None = None
-    unreadCommentsCount: int | None = None
-    unreadCharactersCount: int | None = None
+    privacy_settings: GamePrivacySettings | None = Field(default=None, alias="privacySettings")
+    unread_posts_count: int | None = Field(default=None, alias="unreadPostsCount")
+    unread_comments_count: int | None = Field(default=None, alias="unreadCommentsCount")
+    unread_characters_count: int | None = Field(default=None, alias="unreadCharactersCount")
 
 
-class GameListEnvelope(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    resources: list[Game] | None = None
-    paging: Paging | None = None
-
-
-class GameEnvelope(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    resource: Game | None = None
-    metadata: dict | None = None
+GameListEnvelope = ResourceListEnvelope[Game]
+GameEnvelope = ResourceEnvelope[Game]
+TagListEnvelope = ResourceListEnvelope[Tag]
+UserListEnvelope = ResourceListEnvelope[User]
+UserEnvelope = ResourceEnvelope[User]
 
 
-class TagListEnvelope(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    resources: list[Tag] | None = None
-    paging: Paging | None = None
-
-
-class UserListEnvelope(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    resources: list[User] | None = None
-    paging: Paging | None = None
-
-
-class UserEnvelope(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    resource: User | None = None
-    metadata: dict | None = None
-
-
-class BadRequestError(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    message: str | None = None
-    invalidProperties: dict[str, list[str]] | None = None
-
-
-class GeneralError(BaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    message: str | None = None
+__all__ = [
+    "AttributeSchema",
+    "AttributeSpecificationType",
+    "AttributeValueSpecification",
+    "BadRequestError",
+    "CommentariesAccessMode",
+    "Game",
+    "GameEnvelope",
+    "GameListEnvelope",
+    "GameParticipation",
+    "GamePrivacySettings",
+    "GameStatus",
+    "GeneralError",
+    "InfoBbText",
+    "Paging",
+    "Rating",
+    "SchemaType",
+    "Tag",
+    "TagListEnvelope",
+    "User",
+    "UserEnvelope",
+    "UserListEnvelope",
+]

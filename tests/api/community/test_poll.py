@@ -1,6 +1,7 @@
 import pytest
 import requests
 
+from src.api.controllers.community.poll_controller import PollApi
 from src.api.models.community.poll_model import PollListEnvelope
 from tests.fixtures.allure_helpers import step
 
@@ -53,3 +54,25 @@ def test_vote_for_invalid_poll_returns_error(poll_api):
         )
     with step("Verify status code is one of expected error codes"):
         assert exc_info.value.response.status_code in (401, 403, 410, 500)
+
+
+@pytest.mark.regression
+def test_get_polls_without_token_returns_200_or_auth_error(configs):
+    api = PollApi(base_url=configs.app_base_url)
+    with step("Get polls list without auth token"):
+        try:
+            response = api.list(size=5)
+        except requests.HTTPError as exc_info:
+            assert exc_info.response.status_code in (401, 403, 500)
+            return
+    with step("Verify response structure when endpoint is public"):
+        assert isinstance(response, PollListEnvelope)
+
+
+@pytest.mark.regression
+def test_vote_poll_without_token_returns_401_or_403(configs):
+    api = PollApi(base_url=configs.app_base_url)
+    with step("Vote in poll without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.vote(id="00000000-0000-0000-0000-000000000000", option_id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)

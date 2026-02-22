@@ -2,6 +2,7 @@ import pytest
 import requests
 from faker import Faker
 
+from src.api.controllers.forum.comment_controller import CommentController
 from tests.fixtures.allure_helpers import step
 
 pytestmark = [pytest.mark.api]
@@ -170,3 +171,21 @@ def test_get_comment_with_render_mode(forum_comment_api, created_comment):
         comment_text = forum_comment_api.get_comment(id=created_comment.id, render_mode="Text")
         assert comment_text.resource is not None
         assert comment_text.resource.id == created_comment.id
+
+
+@pytest.mark.regression
+def test_like_comment_without_token_returns_401_or_403(configs, created_comment):
+    api = CommentController(base_url=configs.app_base_url)
+    with step("Like comment without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.like_comment(id=created_comment.id)
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_update_comment_without_token_returns_401_or_403(configs, created_comment):
+    api = CommentController(base_url=configs.app_base_url)
+    with step("Update comment without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.update_comment(id=created_comment.id, payload={"text": fake.sentence()})
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)

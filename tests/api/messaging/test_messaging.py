@@ -53,3 +53,76 @@ def test_delete_message_not_exists_returns_501_or_410(messaging_api: MessagingAp
 def test_get_messages_requires_valid_conversation_id(messaging_api: MessagingApi):
     with step("Request messages with invalid conversation id format"), pytest.raises(requests.HTTPError):
         messaging_api.get_messages(id="not-a-uuid")
+
+
+@pytest.mark.regression
+def test_get_conversations_without_token_returns_401_or_403(configs):
+    api = MessagingApi(base_url=configs.app_base_url)
+    with step("Request conversations without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.get_conversations(size=5)
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_get_messages_without_token_returns_401_or_403(configs):
+    api = MessagingApi(base_url=configs.app_base_url)
+    with step("Request messages without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.get_messages(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_get_message_without_token_returns_401_or_403(configs):
+    api = MessagingApi(base_url=configs.app_base_url)
+    with step("Request single message without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.get_message(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_delete_message_without_token_returns_401_or_403(configs):
+    api = MessagingApi(base_url=configs.app_base_url)
+    with step("Delete message without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.delete_message(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_delete_unread_messages_without_token_returns_401_or_403(configs):
+    api = MessagingApi(base_url=configs.app_base_url)
+    with step("Delete unread messages without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.delete_unread_messages(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_get_visavi_conversation_without_token_returns_401_or_403(configs):
+    api = MessagingApi(base_url=configs.app_base_url)
+    with step("Get visavi conversation without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.get_visavi_conversation(login="non_existent_user_12345")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_get_conversation_without_token_returns_401_or_403(configs):
+    api = MessagingApi(base_url=configs.app_base_url)
+    with step("Get conversation without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.get_conversation(id="00000000-0000-0000-0000-000000000000")
+    with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_post_message_without_token_returns_401_or_403(configs):
+    api = MessagingApi(base_url=configs.app_base_url)
+    payload = {"text": {"value": "test", "parseMode": "Common"}}
+    with step("Post message without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.post_message(id="00000000-0000-0000-0000-000000000000", message=payload)
+    with step("Verify status code is 400, 401, or 403"):
+        assert exc_info.value.response.status_code in (400, 401, 403)

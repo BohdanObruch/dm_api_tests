@@ -73,3 +73,12 @@ def test_post_user_upload_with_render_mode(user_upload_api, community_user_login
     with step("Verify upload response login"):
         assert response.resource is not None
         assert response.resource.login == community_user_login
+
+
+@pytest.mark.regression
+def test_post_user_upload_without_token_returns_401_or_403(configs, community_user_login: str, valid_png_bytes: bytes):
+    api = UserUploadApi(base_url=configs.app_base_url)
+    with step("Upload avatar without auth token"), pytest.raises(requests.HTTPError) as excinfo:
+        api.post_user_upload(login=community_user_login, file=valid_png_bytes)
+    with step("Verify status code is 401 or 403"):
+        assert excinfo.value.response.status_code in (401, 403)
