@@ -11,10 +11,17 @@ Test suites are split by domain and markers:
 
 ```text
 .
+|- .github/actions/
+|  |- setup/action.yml
+|  |- publish-allure-pages/action.yml
 |- .github/workflows/
-|  |- api-tests-ci.yml
-|  |- api-tests-nightly.yml
-|  |- api-tests-reusable.yml
+|  |- all_tests_report.yml
+|  |- run-account-tests.yml
+|  |- run-common-tests.yml
+|  |- run-community-tests.yml
+|  |- run-forum-tests.yml
+|  |- run-game-tests.yml
+|  |- run-messaging-tests.yml
 |- docs/
 |  |- test_plan_by_swagger.md
 |  |- test_coverage_gap.md
@@ -83,11 +90,19 @@ uv run pytest -m regression
 
 Workflows:
 
-- `api-tests-reusable.yml`: matrix run for each domain and suite (`smoke`, `regression`) with `pytest -n 3`.
-- `api-tests-ci.yml`: reusable launch for `push` to `main`, `pull_request`, and manual run.
-- `api-tests-nightly.yml`: daily schedule at `06:00 UTC` (equals `09:00` Turkey, TRT `UTC+3`) and manual run.
+- `run-account-tests.yml`
+- `run-common-tests.yml`
+- `run-community-tests.yml`
+- `run-forum-tests.yml`
+- `run-game-tests.yml`
+- `run-messaging-tests.yml`
+  each workflow runs matrix suites (`smoke`, `regression`) and uploads Allure artifacts in format
+  `<domain>-<suite>-allure-results`.
+- `all_tests_report.yml` runs on `push` to `main`, `pull_request`, schedule (`06:40 UTC`), and manual запуск.
+  It triggers all six domain workflows, then publishes one merged Allure report to GitHub Pages.
 
 Reporting:
 
-- each matrix job uploads its own Allure results artifact
-- final merge job combines all artifacts and publishes one merged Allure HTML report artifact
+- setup duplication is moved to composite action `./.github/actions/setup`
+- Allure aggregation + deploy logic is moved to composite action `./.github/actions/publish-allure-pages`
+- final `publish-report` job merges all domain/suite artifacts into one Allure report and deploys it to GitHub Pages
