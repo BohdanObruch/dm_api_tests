@@ -51,8 +51,6 @@ Test suites are split by domain and markers:
 - `messaging`: chat/dialogues/messages read scenarios, not-found checks, auth-negative cases, and invalid payload checks
   for chat post.
 
-Detailed gap analysis against full plan: `docs/test_coverage_gap.md`.
-
 ## Requirements
 
 - Python `>=3.14`
@@ -98,7 +96,7 @@ Workflows:
 - `run-messaging-tests.yml`
   each workflow runs matrix suites (`smoke`, `regression`) and uploads Allure artifacts in format
   `<domain>-<suite>-allure-results`.
-- `all_tests_report.yml` runs on `push` to `main`, `pull_request`, schedule (`06:40 UTC`), and manual запуск.
+- `all_tests_report.yml` runs on `push` to `main`, `pull_request`, schedule (`06:01 UTC`), and manual запуск.
   It triggers all six domain workflows, then publishes one merged Allure report to GitHub Pages.
 
 Reporting:

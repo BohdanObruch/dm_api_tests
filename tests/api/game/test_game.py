@@ -5,6 +5,8 @@ from src.api.controllers.game.game_controller import GameApi
 from src.api.models.game.game_model import GameListEnvelope, TagListEnvelope
 from tests.fixtures.allure_helpers import step
 
+NON_EXISTENT_ID = "00000000-0000-0000-0000-000000000000"
+
 
 @pytest.mark.smoke
 def test_get_games_list(game_api):
@@ -54,7 +56,7 @@ def test_get_tags(game_api):
 @pytest.mark.regression
 def test_get_game_not_found_returns_410(game_api):
     with step("Request non-existing game by id"), pytest.raises(requests.HTTPError) as exc_info:
-        game_api.get_game(id="00000000-0000-0000-0000-000000000000")
+        game_api.get_game(id=NON_EXISTENT_ID)
     with step("Verify status code is 410"):
         assert exc_info.value.response.status_code == 410
 
@@ -62,7 +64,7 @@ def test_get_game_not_found_returns_410(game_api):
 @pytest.mark.regression
 def test_delete_game_not_found_returns_410(game_api):
     with step("Delete non-existing game by id"), pytest.raises(requests.HTTPError) as exc_info:
-        game_api.delete_game(id="00000000-0000-0000-0000-000000000000")
+        game_api.delete_game(id=NON_EXISTENT_ID)
     with step("Verify status code is 410"):
         assert exc_info.value.response.status_code == 410
 
@@ -104,7 +106,7 @@ def test_get_game_blacklist_not_found_returns_410(game_api):
 def test_post_reader_without_token_returns_401_or_403(configs):
     api = GameApi(base_url=configs.app_base_url)
     with step("Add reader without auth token"), pytest.raises(requests.HTTPError) as exc_info:
-        api.post_reader(id="00000000-0000-0000-0000-000000000000")
+        api.post_reader(id=NON_EXISTENT_ID)
     with step("Verify status code is 401 or 403"):
         assert exc_info.value.response.status_code in (401, 403)
 
@@ -113,7 +115,7 @@ def test_post_reader_without_token_returns_401_or_403(configs):
 def test_delete_reader_without_token_returns_401_or_403(configs):
     api = GameApi(base_url=configs.app_base_url)
     with step("Delete reader without auth token"), pytest.raises(requests.HTTPError) as exc_info:
-        api.delete_reader(id="00000000-0000-0000-0000-000000000000")
+        api.delete_reader(id=NON_EXISTENT_ID)
     with step("Verify status code is 401 or 403"):
         assert exc_info.value.response.status_code in (401, 403)
 
@@ -122,6 +124,34 @@ def test_delete_reader_without_token_returns_401_or_403(configs):
 def test_post_blacklist_without_token_returns_401_or_403(configs):
     api = GameApi(base_url=configs.app_base_url)
     with step("Add blacklist record without auth token"), pytest.raises(requests.HTTPError) as exc_info:
-        api.post_blacklist(id="00000000-0000-0000-0000-000000000000", payload={"login": "non_existent_user"})
+        api.post_blacklist(id=NON_EXISTENT_ID, payload={"login": "non_existent_user"})
     with step("Verify status code is 401 or 403"):
+        assert exc_info.value.response.status_code in (401, 403)
+
+
+@pytest.mark.regression
+def test_post_game_without_token_returns_documented_error(configs):
+    api = GameApi(base_url=configs.app_base_url)
+    payload = {"title": "autotest game"}
+    with step("Create game without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.post_game(payload=payload)
+    with step("Verify status code is documented for POST /v1/games"):
+        assert exc_info.value.response.status_code in (400, 401, 403, 410)
+
+
+@pytest.mark.regression
+def test_put_game_details_for_non_existing_game_returns_documented_error(game_api):
+    payload = {"title": "updated by autotest"}
+    with step("Update details for non-existing game"), pytest.raises(requests.HTTPError) as exc_info:
+        game_api.put_game(id=NON_EXISTENT_ID, payload=payload)
+    with step("Verify status code is documented for PATCH /v1/games/{id}/details"):
+        assert exc_info.value.response.status_code in (400, 401, 403, 410)
+
+
+@pytest.mark.regression
+def test_delete_blacklist_without_token_returns_documented_error(configs):
+    api = GameApi(base_url=configs.app_base_url)
+    with step("Delete blacklist entry without auth token"), pytest.raises(requests.HTTPError) as exc_info:
+        api.delete_blacklist(id=NON_EXISTENT_ID, login="non_existent_user")
+    with step("Verify status code is documented for DELETE /v1/games/{id}/blacklist/users/{login}"):
         assert exc_info.value.response.status_code in (401, 403)
