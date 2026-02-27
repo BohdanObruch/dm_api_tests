@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Comprehensive API testing framework for the DM.API with support for account, community, forum, game, and messaging modules"
 requires-python = ">=3.14"
 dependencies = [
-    "faker==40.4.0",
+    "faker==40.5.1",
     "requests==2.32.5",
     "pytest==9.0.2",
     "pytest-xdist==3.8.0",
@@ -16,7 +16,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "ruff>=0.15.1",
+    "ruff>=0.15.4",
 ]
 
 [build-system]

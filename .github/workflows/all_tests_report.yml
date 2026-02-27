@@ -10,9 +10,7 @@ on:
     - cron: "1 6 * * *"
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
@@ -76,14 +74,12 @@ jobs:
       - run-messaging
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Publish Allure to GitHub Pages
-        id: deploy
         uses: ./.github/actions/publish-allure-pages
         with:
           report-title: "API test report"

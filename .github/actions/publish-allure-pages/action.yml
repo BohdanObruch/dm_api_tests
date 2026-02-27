@@ -52,20 +52,14 @@ inputs:
     description: 'Expected suite mode for prefix 6: smoke, regression, all'
     required: false
     default: 'all'
-
 outputs:
   page_url:
     description: 'Published GitHub Pages URL'
-    value: ${{ steps.deployment.outputs.page_url }}
+    value: ${{ steps.publish.outputs.page_url }}
 
 runs:
   using: 'composite'
   steps:
-    - name: Define Pages artifact name
-      id: pages-artifact
-      shell: bash
-      run: echo "name=github-pages-${{ github.run_id }}-${{ github.run_attempt }}" >> "$GITHUB_OUTPUT"
-
     - name: Download ${{ inputs.artifact-prefix-1 }} smoke Allure results
       if: inputs.suite-mode-1 != 'regression'
       continue-on-error: true
@@ -269,17 +263,11 @@ runs:
             '</html>' > pages/index.html
         fi
 
-    - name: Configure Pages
-      uses: actions/configure-pages@v5
-
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
+    - name: Publish to gh-pages branch
+      id: publish
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        name: ${{ steps.pages-artifact.outputs.name }}
-        path: pages
-
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
-      with:
-        artifact_name: ${{ steps.pages-artifact.outputs.name }}
+        github_token: ${{ github.token }}
+        publish_branch: gh-pages
+        publish_dir: pages
+        allow_empty_commit: true
