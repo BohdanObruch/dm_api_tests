@@ -1,0 +1,1 @@
+{"id":"5ca93f04284fd0f23529889bab812bf9","fullName":"tests.api.game.test_game_attributeschema#test_create_attribute_schema_invalid_payload_returns_400","name":"test_create_attribute_schema_invalid_payload_returns_400","status":"passed","testResultsByEnv":{"default":"90526f1c75c6a361c9122037be193dac"}}

@@ -1,0 +1,1 @@
+{"id":"486c77e81701af5b7f8bc584c00d244b","fullName":"tests.api.community.test_poll#test_get_poll_by_invalid_id_returns_410_or_known_500","name":"test_get_poll_by_invalid_id_returns_410_or_known_500","status":"passed","testResultsByEnv":{"default":"e62c84b3f1fc87208cd0c42e35639e65"}}

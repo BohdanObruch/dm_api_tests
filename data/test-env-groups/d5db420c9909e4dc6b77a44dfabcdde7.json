@@ -1,0 +1,1 @@
+{"id":"d5db420c9909e4dc6b77a44dfabcdde7","fullName":"tests.api.game.test_game_room#test_delete_claim_not_found_returns_410","name":"test_delete_claim_not_found_returns_410","status":"passed","testResultsByEnv":{"default":"c12a280aaf0db7a46f15d0d09741e73f"}}

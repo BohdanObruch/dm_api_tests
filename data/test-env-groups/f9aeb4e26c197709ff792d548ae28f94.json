@@ -1,0 +1,1 @@
+{"id":"f9aeb4e26c197709ff792d548ae28f94","fullName":"tests.api.game.test_game_post#test_mark_posts_as_read_for_non_existing_room_returns_410","name":"test_mark_posts_as_read_for_non_existing_room_returns_410","status":"passed","testResultsByEnv":{"default":"5ee3a6d65d360a2c6e4ebeb1d95c4642"}}

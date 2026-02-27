@@ -1,0 +1,1 @@
+{"id":"96a97455d209a2829846ce65dc7eaf52","fullName":"tests.api.game.test_game_room#test_create_pending_post_without_token_returns_documented_error","name":"test_create_pending_post_without_token_returns_documented_error","status":"passed","testResultsByEnv":{"default":"96d63312fc651e0860bd883607402212"}}
