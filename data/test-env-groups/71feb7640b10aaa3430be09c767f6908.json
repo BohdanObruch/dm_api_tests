@@ -1,1 +1,1 @@
-{"id":"71feb7640b10aaa3430be09c767f6908","fullName":"tests.api.game.test_game#test_get_games_list","name":"test_get_games_list","status":"passed","testResultsByEnv":{"default":"dbbeff11490b22346457d7a00a06179b"}}
+{"id":"71feb7640b10aaa3430be09c767f6908","fullName":"tests.api.game.test_game#test_get_games_list","name":"test_get_games_list","status":"passed","testResultsByEnv":{"default":"1b581ea48cc13f0f0560e58705de9f55"}}
