@@ -1,1 +1,1 @@
-{"id":"2380e73ba33954bbd6a2e640b1ffc6d8","fullName":"tests.api.forum.test_forum#test_get_fora_list","name":"test_get_fora_list","status":"passed","testResultsByEnv":{"default":"d52273020dc72ab2a0c7c3806245d994"}}
+{"id":"2380e73ba33954bbd6a2e640b1ffc6d8","fullName":"tests.api.forum.test_forum#test_get_fora_list","name":"test_get_fora_list","status":"failed","testResultsByEnv":{"default":"8d165fd0d3003083e2658c22101e6b2c"}}
