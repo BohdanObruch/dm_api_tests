@@ -1,1 +1,1 @@
-{"id":"bcf342a1e10a5c35b2fa99dbaad1290d","fullName":"tests.api.game.test_game_post#test_get_post_votes_not_found_returns_410","name":"test_get_post_votes_not_found_returns_410","status":"failed","testResultsByEnv":{"default":"806786c9974da849084abfe172055083"}}
+{"id":"bcf342a1e10a5c35b2fa99dbaad1290d","fullName":"tests.api.game.test_game_post#test_get_post_votes_not_found_returns_410","name":"test_get_post_votes_not_found_returns_410","status":"passed","testResultsByEnv":{"default":"947e2b12a2cf0a705ae2a56a50d13f05"}}

@@ -1,1 +1,1 @@
-{"id":"4ae3c56b419f1e0ac26076f4a70c40e3","fullName":"tests.api.community.test_poll#test_get_polls_list_returns_200_or_known_500","name":"test_get_polls_list_returns_200_or_known_500","status":"failed","testResultsByEnv":{"default":"bff8788f06bca44cc8e0e4cdef0c9c35"}}
+{"id":"4ae3c56b419f1e0ac26076f4a70c40e3","fullName":"tests.api.community.test_poll#test_get_polls_list_returns_200_or_known_500","name":"test_get_polls_list_returns_200_or_known_500","status":"passed","testResultsByEnv":{"default":"3f34451ffe2746c2982e35fbebaa1463"}}
