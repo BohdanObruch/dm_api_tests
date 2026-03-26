@@ -1,1 +1,1 @@
-{"id":"b82b0f35f346e12c0ba251f08bb090e7","fullName":"tests.api.account.test_account#test_change_password_invalid_payload_returns_400","name":"test_change_password_invalid_payload_returns_400","status":"passed","testResultsByEnv":{"default":"79412d0b656811fd6cf6ea7feb1fd355"}}
+{"id":"b82b0f35f346e12c0ba251f08bb090e7","fullName":"tests.api.account.test_account#test_change_password_invalid_payload_returns_400","name":"test_change_password_invalid_payload_returns_400","status":"failed","testResultsByEnv":{"default":"18de4b1c865e65fd657b338b220b26bb"}}
