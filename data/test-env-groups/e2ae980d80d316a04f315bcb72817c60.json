@@ -1,1 +1,1 @@
-{"id":"e2ae980d80d316a04f315bcb72817c60","fullName":"tests.api.game.test_game_room#test_get_rooms_without_token_returns_401_or_403","name":"test_get_rooms_without_token_returns_401_or_403","status":"passed","testResultsByEnv":{"default":"8bc89c7ec2f11847877f535ed91ea404"}}
+{"id":"e2ae980d80d316a04f315bcb72817c60","fullName":"tests.api.game.test_game_room#test_get_rooms_without_token_returns_401_or_403","name":"test_get_rooms_without_token_returns_401_or_403","status":"passed","testResultsByEnv":{"default":"f436f1c1c240dc771ea330fe605920f3"}}
