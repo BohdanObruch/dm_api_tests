@@ -1,1 +1,1 @@
-{"id":"efdfdbdb691f9744c3f699e7ad72f262","fullName":"tests.api.account.test_account#test_register_invalid_payload_returns_400","name":"test_register_invalid_payload_returns_400","status":"passed","testResultsByEnv":{"default":"e9b50b9bea14a043218954f12b35d764"}}
+{"id":"efdfdbdb691f9744c3f699e7ad72f262","fullName":"tests.api.account.test_account#test_register_invalid_payload_returns_400","name":"test_register_invalid_payload_returns_400","status":"passed","testResultsByEnv":{"default":"c96a24128dbda749c0f07a21f001a784"}}
