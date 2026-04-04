@@ -1,1 +1,1 @@
-{"id":"9e36d5b70f51af7b49e1854af7536f9f","fullName":"tests.api.account.test_login#test_logout_without_token_returns_401","name":"test_logout_without_token_returns_401","status":"passed","testResultsByEnv":{"default":"6b8e33e9eea3f10a5374d974834c22b9"}}
+{"id":"9e36d5b70f51af7b49e1854af7536f9f","fullName":"tests.api.account.test_login#test_logout_without_token_returns_401","name":"test_logout_without_token_returns_401","status":"passed","testResultsByEnv":{"default":"d768ce3ed7d4b0fe47aa482e8b5e9e4e"}}

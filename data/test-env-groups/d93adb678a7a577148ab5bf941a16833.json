@@ -1,1 +1,1 @@
-{"id":"d93adb678a7a577148ab5bf941a16833","fullName":"tests.api.account.test_account#test_register_duplicate_returns_400","name":"test_register_duplicate_returns_400","status":"passed","testResultsByEnv":{"default":"f40295a1fabff9e3d40ef6b0bd878536"}}
+{"id":"d93adb678a7a577148ab5bf941a16833","fullName":"tests.api.account.test_account#test_register_duplicate_returns_400","name":"test_register_duplicate_returns_400","status":"passed","testResultsByEnv":{"default":"401336f6f7333dbef7bb35a2cce0274c"}}
