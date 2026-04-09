@@ -1,1 +1,1 @@
-{"id":"721c06acb91757457f2cdfb0c78922dc","fullName":"tests.api.account.test_account#test_change_password_success_and_revert","name":"test_change_password_success_and_revert","status":"failed","testResultsByEnv":{"default":"1b40cabeeaaa87f3be57cf1844b087f7"}}
+{"id":"721c06acb91757457f2cdfb0c78922dc","fullName":"tests.api.account.test_account#test_change_password_success_and_revert","name":"test_change_password_success_and_revert","status":"passed","testResultsByEnv":{"default":"b8701c037abd4a73f7a6a6638853d075"}}
