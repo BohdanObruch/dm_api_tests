@@ -1,1 +1,1 @@
-{"id":"5592c2249ad781a82fe0fb11ffff782f","fullName":"tests.api.game.test_game_attributeschema#test_create_attribute_schema_roundtrip","name":"test_create_attribute_schema_roundtrip","status":"failed","testResultsByEnv":{"default":"4e2526520081bb03ac129f620a3a0d13"}}
+{"id":"5592c2249ad781a82fe0fb11ffff782f","fullName":"tests.api.game.test_game_attributeschema#test_create_attribute_schema_roundtrip","name":"test_create_attribute_schema_roundtrip","status":"passed","testResultsByEnv":{"default":"01c61443257b3f475a114c6c90608317"}}
