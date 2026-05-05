@@ -1,1 +1,1 @@
-{"id":"8d89cc6fa8d085430edaa8a3c9aaeb54","fullName":"tests.api.account.test_account#test_reset_password_success","name":"test_reset_password_success","status":"failed","testResultsByEnv":{"default":"ff48a3a0e32ec223cd1464e4daf222f1"}}
+{"id":"8d89cc6fa8d085430edaa8a3c9aaeb54","fullName":"tests.api.account.test_account#test_reset_password_success","name":"test_reset_password_success","status":"passed","testResultsByEnv":{"default":"9fc8c10dea4b67fdb6246a57cba01959"}}

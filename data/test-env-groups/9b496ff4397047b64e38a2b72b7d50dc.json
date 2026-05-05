@@ -1,1 +1,1 @@
-{"id":"9b496ff4397047b64e38a2b72b7d50dc","fullName":"tests.api.community.test_review#test_create_review_forbidden_for_regular_user","name":"test_create_review_forbidden_for_regular_user","status":"failed","testResultsByEnv":{"default":"7a54792f8b4f87884cca330ac117b4db"}}
+{"id":"9b496ff4397047b64e38a2b72b7d50dc","fullName":"tests.api.community.test_review#test_create_review_forbidden_for_regular_user","name":"test_create_review_forbidden_for_regular_user","status":"passed","testResultsByEnv":{"default":"b9d84a4ffe53b6f4380ab7569ea57c76"}}

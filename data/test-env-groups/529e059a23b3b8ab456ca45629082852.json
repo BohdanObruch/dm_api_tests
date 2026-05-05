@@ -1,1 +1,1 @@
-{"id":"529e059a23b3b8ab456ca45629082852","fullName":"tests.api.game.test_game_attributeschema#test_delete_attribute_schema","name":"test_delete_attribute_schema","status":"failed","testResultsByEnv":{"default":"435f4fad8b8da7e8aaff16c0504a5357"}}
+{"id":"529e059a23b3b8ab456ca45629082852","fullName":"tests.api.game.test_game_attributeschema#test_delete_attribute_schema","name":"test_delete_attribute_schema","status":"passed","testResultsByEnv":{"default":"8989bbb7684f57a640c26eda30426c3a"}}
