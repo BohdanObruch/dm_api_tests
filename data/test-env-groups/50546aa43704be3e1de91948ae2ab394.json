@@ -1,1 +1,1 @@
-{"id":"50546aa43704be3e1de91948ae2ab394","fullName":"tests.api.account.test_account#test_get_current_user_without_token_returns_auth_error","name":"test_get_current_user_without_token_returns_auth_error","status":"passed","testResultsByEnv":{"default":"308157b918de8be7b864c368e72b7b5e"}}
+{"id":"50546aa43704be3e1de91948ae2ab394","fullName":"tests.api.account.test_account#test_get_current_user_without_token_returns_auth_error","name":"test_get_current_user_without_token_returns_auth_error","status":"passed","testResultsByEnv":{"default":"086999167af5048655c7a91cb56f4604"}}
