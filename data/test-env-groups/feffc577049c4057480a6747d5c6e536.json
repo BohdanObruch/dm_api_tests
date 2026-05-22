@@ -1,1 +1,1 @@
-{"id":"feffc577049c4057480a6747d5c6e536","fullName":"tests.api.game.test_game_post#test_post_post_without_token_returns_documented_error","name":"test_post_post_without_token_returns_documented_error","status":"passed","testResultsByEnv":{"default":"7935346c1a72458cdebf32d1a1c7683b"}}
+{"id":"feffc577049c4057480a6747d5c6e536","fullName":"tests.api.game.test_game_post#test_post_post_without_token_returns_documented_error","name":"test_post_post_without_token_returns_documented_error","status":"passed","testResultsByEnv":{"default":"d7af18100d1747ee37520a007f357460"}}
