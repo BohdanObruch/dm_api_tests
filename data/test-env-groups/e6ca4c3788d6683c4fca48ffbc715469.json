@@ -1,1 +1,1 @@
-{"id":"e6ca4c3788d6683c4fca48ffbc715469","fullName":"tests.api.forum.test_topic#test_post_forum_comment_without_token_returns_401_or_403","name":"test_post_forum_comment_without_token_returns_401_or_403","status":"passed","testResultsByEnv":{"default":"a822f214bebb57a3d45447264c03181d"}}
+{"id":"e6ca4c3788d6683c4fca48ffbc715469","fullName":"tests.api.forum.test_topic#test_post_forum_comment_without_token_returns_401_or_403","name":"test_post_forum_comment_without_token_returns_401_or_403","status":"failed","testResultsByEnv":{"default":"72d1695e22fa56a1580dea5d64fed0da"}}
