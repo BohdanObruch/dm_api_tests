@@ -1,1 +1,1 @@
-{"id":"3c007be2fd08fa3aa93fa517924d4cb1","fullName":"tests.api.account.test_account#test_change_email_success","name":"test_change_email_success","status":"broken","testResultsByEnv":{"default":"546549efe2df7512c21e30943db8db7f"}}
+{"id":"3c007be2fd08fa3aa93fa517924d4cb1","fullName":"tests.api.account.test_account#test_change_email_success","name":"test_change_email_success","status":"passed","testResultsByEnv":{"default":"0e611ec684ed4e1f104dae5dc046b85d"}}
