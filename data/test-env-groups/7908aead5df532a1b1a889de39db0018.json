@@ -1,1 +1,1 @@
-{"id":"7908aead5df532a1b1a889de39db0018","fullName":"tests.api.game.test_game#test_get_game_blacklist_not_found_returns_410","name":"test_get_game_blacklist_not_found_returns_410","status":"passed","testResultsByEnv":{"default":"6425d5f8968287c324e4d32ed547ef27"}}
+{"id":"7908aead5df532a1b1a889de39db0018","fullName":"tests.api.game.test_game#test_get_game_blacklist_not_found_returns_410","name":"test_get_game_blacklist_not_found_returns_410","status":"failed","testResultsByEnv":{"default":"a84f8df32d1808372658507f724ce57c"}}
