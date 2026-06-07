@@ -1,1 +1,1 @@
-{"id":"ae94444145f0f2b163aa837ad5b8b9fe","fullName":"tests.api.account.test_login#test_logout","name":"test_logout","status":"failed","testResultsByEnv":{"default":"baf8aa56a31e7bba4030f14dfe553324"}}
+{"id":"ae94444145f0f2b163aa837ad5b8b9fe","fullName":"tests.api.account.test_login#test_logout","name":"test_logout","status":"passed","testResultsByEnv":{"default":"fcce62bf88290807c60b92ac22ea7bd8"}}

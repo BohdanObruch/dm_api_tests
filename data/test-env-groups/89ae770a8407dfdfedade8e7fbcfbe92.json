@@ -1,1 +1,1 @@
-{"id":"89ae770a8407dfdfedade8e7fbcfbe92","fullName":"tests.api.forum.test_topic#test_post_topic_like_not_found","name":"test_post_topic_like_not_found","status":"failed","testResultsByEnv":{"default":"19f8cd5bef0e7c361fd98a9596ea46c8"}}
+{"id":"89ae770a8407dfdfedade8e7fbcfbe92","fullName":"tests.api.forum.test_topic#test_post_topic_like_not_found","name":"test_post_topic_like_not_found","status":"passed","testResultsByEnv":{"default":"1e2c630c31715dbe4665a4a19533226c"}}

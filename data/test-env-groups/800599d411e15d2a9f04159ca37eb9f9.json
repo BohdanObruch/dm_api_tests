@@ -1,1 +1,1 @@
-{"id":"800599d411e15d2a9f04159ca37eb9f9","fullName":"tests.api.common.test_search_tips#test_search_roundtrip","name":"test_search_roundtrip","status":"failed","testResultsByEnv":{"default":"4456f9f3706bf3d9763f147b9f18ad5a"}}
+{"id":"800599d411e15d2a9f04159ca37eb9f9","fullName":"tests.api.common.test_search_tips#test_search_roundtrip","name":"test_search_roundtrip","status":"passed","testResultsByEnv":{"default":"bf82fbe013621bf908852f7e99861fb5"}}
