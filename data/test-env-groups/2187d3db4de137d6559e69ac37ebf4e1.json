@@ -1,1 +1,1 @@
-{"id":"2187d3db4de137d6559e69ac37ebf4e1","fullName":"tests.api.forum.test_topic#test_get_forum_comments","name":"test_get_forum_comments","status":"passed","testResultsByEnv":{"default":"ddd2e8aa62cdec0953e4059ef77d11b6"}}
+{"id":"2187d3db4de137d6559e69ac37ebf4e1","fullName":"tests.api.forum.test_topic#test_get_forum_comments","name":"test_get_forum_comments","status":"failed","testResultsByEnv":{"default":"aedec64092b7519bab6b3e1cfb00149d"}}
