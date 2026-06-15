@@ -1,1 +1,1 @@
-{"id":"0d856d41d56f7d95cd1e6ab980e3a6a9","fullName":"tests.api.forum.test_topic#test_delete_topic_not_found","name":"test_delete_topic_not_found","status":"failed","testResultsByEnv":{"default":"9c9e3486344eb906984f05253ae4a951"}}
+{"id":"0d856d41d56f7d95cd1e6ab980e3a6a9","fullName":"tests.api.forum.test_topic#test_delete_topic_not_found","name":"test_delete_topic_not_found","status":"passed","testResultsByEnv":{"default":"bb5b9af10c46a19728c17bd7bd3eed1a"}}
