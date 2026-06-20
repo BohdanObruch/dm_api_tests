@@ -1,1 +1,1 @@
-{"id":"689085b94ee1f4fb35dba06042285b8b","fullName":"tests.api.forum.test_forum#test_post_topic_in_forum","name":"test_post_topic_in_forum","status":"broken","testResultsByEnv":{"default":"3df28bfc13157fbca28a14f3880797c3"}}
+{"id":"689085b94ee1f4fb35dba06042285b8b","fullName":"tests.api.forum.test_forum#test_post_topic_in_forum","name":"test_post_topic_in_forum","status":"passed","testResultsByEnv":{"default":"fbebdfa974d72288a7cc5d081c3ebe45"}}

@@ -1,1 +1,1 @@
-{"id":"b2054e58d96d345833bfb81e104edcfa","fullName":"tests.api.messaging.test_messaging#test_get_message_not_exists_returns_410","name":"test_get_message_not_exists_returns_410","status":"broken","testResultsByEnv":{"default":"6306b178d6fdc3423baa307824ab152e"}}
+{"id":"b2054e58d96d345833bfb81e104edcfa","fullName":"tests.api.messaging.test_messaging#test_get_message_not_exists_returns_410","name":"test_get_message_not_exists_returns_410","status":"passed","testResultsByEnv":{"default":"793c8dc04b4dc03122b501bcb9f615da"}}
