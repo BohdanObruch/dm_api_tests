@@ -1,1 +1,1 @@
-{"id":"28886fe35dc40acf6ac43b711483ceff","fullName":"tests.api.forum.test_topic#test_post_comment_and_read_comments","name":"test_post_comment_and_read_comments","status":"passed","testResultsByEnv":{"default":"a86be23e6fea9f10e49d955f75067e3a"}}
+{"id":"28886fe35dc40acf6ac43b711483ceff","fullName":"tests.api.forum.test_topic#test_post_comment_and_read_comments","name":"test_post_comment_and_read_comments","status":"failed","testResultsByEnv":{"default":"e91eced5d33b7788934b56280806e16e"}}
