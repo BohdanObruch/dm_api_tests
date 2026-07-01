@@ -1,1 +1,1 @@
-{"id":"0a96ba6c174def0a968bfcee3b8e8131","fullName":"tests.api.game.test_game_attributeschema#test_get_attribute_schema_list","name":"test_get_attribute_schema_list","status":"passed","testResultsByEnv":{"default":"0bb6826060930d38f9df0d2ed4d720ae"}}
+{"id":"0a96ba6c174def0a968bfcee3b8e8131","fullName":"tests.api.game.test_game_attributeschema#test_get_attribute_schema_list","name":"test_get_attribute_schema_list","status":"broken","testResultsByEnv":{"default":"0e9aac821283c88b3782973ba0a8dde8"}}

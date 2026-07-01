@@ -1,1 +1,1 @@
-{"id":"1fe92a8ed5bf599cb7db7373e079d53f","fullName":"tests.api.game.test_game_character#test_get_character_not_found_returns_410","name":"test_get_character_not_found_returns_410","status":"passed","testResultsByEnv":{"default":"8304e1a20398d580158db24eeb127431"}}
+{"id":"1fe92a8ed5bf599cb7db7373e079d53f","fullName":"tests.api.game.test_game_character#test_get_character_not_found_returns_410","name":"test_get_character_not_found_returns_410","status":"broken","testResultsByEnv":{"default":"9c58ec830587d6712806a7b45914ee2f"}}
