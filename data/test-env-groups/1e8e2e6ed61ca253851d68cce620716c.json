@@ -1,1 +1,1 @@
-{"id":"1e8e2e6ed61ca253851d68cce620716c","fullName":"tests.api.messaging.test_messaging#test_delete_message_not_exists_returns_501_or_410","name":"test_delete_message_not_exists_returns_501_or_410","status":"passed","testResultsByEnv":{"default":"5c221d283461457c2a6392189a1d3121"}}
+{"id":"1e8e2e6ed61ca253851d68cce620716c","fullName":"tests.api.messaging.test_messaging#test_delete_message_not_exists_returns_501_or_410","name":"test_delete_message_not_exists_returns_501_or_410","status":"failed","testResultsByEnv":{"default":"2f64bd29c42a5fb0cab29d776c94c56e"}}
