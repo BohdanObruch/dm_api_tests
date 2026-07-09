@@ -1,1 +1,1 @@
-{"id":"128707744ef702c6080e9994ce8dbaf6","fullName":"tests.api.account.test_account#test_change_email_invalid_payload_returns_400","name":"test_change_email_invalid_payload_returns_400","status":"failed","testResultsByEnv":{"default":"4bd8b41c72b549273c43147328978844"}}
+{"id":"128707744ef702c6080e9994ce8dbaf6","fullName":"tests.api.account.test_account#test_change_email_invalid_payload_returns_400","name":"test_change_email_invalid_payload_returns_400","status":"passed","testResultsByEnv":{"default":"f51101203cc340cd4f52a3f20073cb40"}}

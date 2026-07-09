@@ -1,1 +1,1 @@
-{"id":"e9b349d4ed246fda8492a6409d57cbd4","fullName":"tests.api.forum.test_forum#test_get_specific_forum","name":"test_get_specific_forum","status":"failed","testResultsByEnv":{"default":"c7609729e284f74ef4d29b507bd19967"}}
+{"id":"e9b349d4ed246fda8492a6409d57cbd4","fullName":"tests.api.forum.test_forum#test_get_specific_forum","name":"test_get_specific_forum","status":"passed","testResultsByEnv":{"default":"9f7a89152a3584405e10e7b60f978d7c"}}

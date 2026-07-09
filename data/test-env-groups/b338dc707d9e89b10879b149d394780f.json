@@ -1,1 +1,1 @@
-{"id":"b338dc707d9e89b10879b149d394780f","fullName":"tests.api.community.test_user#test_get_users_list","name":"test_get_users_list","status":"failed","testResultsByEnv":{"default":"4d02c379f4cc1429a7845fbf42a3f557"}}
+{"id":"b338dc707d9e89b10879b149d394780f","fullName":"tests.api.community.test_user#test_get_users_list","name":"test_get_users_list","status":"passed","testResultsByEnv":{"default":"f737dd083a9ed6dea415ab4fe21509b2"}}
