@@ -1,1 +1,1 @@
-{"id":"2098ab8a6521aa824a73b03f50a21999","fullName":"tests.api.forum.test_topic#test_put_topic_roundtrip","name":"test_put_topic_roundtrip","status":"failed","testResultsByEnv":{"default":"75cbc441d27197518d3b538d52880e5b"}}
+{"id":"2098ab8a6521aa824a73b03f50a21999","fullName":"tests.api.forum.test_topic#test_put_topic_roundtrip","name":"test_put_topic_roundtrip","status":"passed","testResultsByEnv":{"default":"4ffdb71b0eff81c1a2826ddd0f38afec"}}
