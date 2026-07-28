@@ -1,1 +1,1 @@
-{"id":"bc8c3dfc3697bf2c970e74751f5fdaff","fullName":"tests.api.game.test_game_character#test_delete_character_not_found_returns_410","name":"test_delete_character_not_found_returns_410","status":"passed","testResultsByEnv":{"default":"62f78aa42fbfc0524414145092f6d9d9"}}
+{"id":"bc8c3dfc3697bf2c970e74751f5fdaff","fullName":"tests.api.game.test_game_character#test_delete_character_not_found_returns_410","name":"test_delete_character_not_found_returns_410","status":"failed","testResultsByEnv":{"default":"8e8654e7a587275713f8ece857517eef"}}

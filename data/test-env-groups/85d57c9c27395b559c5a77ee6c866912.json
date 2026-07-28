@@ -1,1 +1,1 @@
-{"id":"85d57c9c27395b559c5a77ee6c866912","fullName":"tests.api.community.test_poll#test_create_poll_forbidden_for_regular_user","name":"test_create_poll_forbidden_for_regular_user","status":"passed","testResultsByEnv":{"default":"3e7333926c7e8d72db2dfe5a18d1ac09"}}
+{"id":"85d57c9c27395b559c5a77ee6c866912","fullName":"tests.api.community.test_poll#test_create_poll_forbidden_for_regular_user","name":"test_create_poll_forbidden_for_regular_user","status":"failed","testResultsByEnv":{"default":"33465134ef4e71d3901f33072ffc2141"}}
