@@ -1,1 +1,1 @@
-{"id":"1db41a3983a1d52c2ac942b0d2d627b7","fullName":"tests.api.community.test_user#test_get_user_details_by_login","name":"test_get_user_details_by_login","status":"passed","testResultsByEnv":{"default":"4ce3eac2686cd56ef0698e4a1b004d5f"}}
+{"id":"1db41a3983a1d52c2ac942b0d2d627b7","fullName":"tests.api.community.test_user#test_get_user_details_by_login","name":"test_get_user_details_by_login","status":"failed","testResultsByEnv":{"default":"f388a612a8093714850d68d7ce417eba"}}
