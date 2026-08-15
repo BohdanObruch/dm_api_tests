@@ -1,1 +1,1 @@
-{"id":"1cd9f9718589b70f6f053b1fafab4d9a","fullName":"tests.api.game.test_game_comment#test_delete_game_comment_not_found_returns_410","name":"test_delete_game_comment_not_found_returns_410","status":"passed","testResultsByEnv":{"default":"2cacec07f7a61f5a4215b5b752093168"}}
+{"id":"1cd9f9718589b70f6f053b1fafab4d9a","fullName":"tests.api.game.test_game_comment#test_delete_game_comment_not_found_returns_410","name":"test_delete_game_comment_not_found_returns_410","status":"failed","testResultsByEnv":{"default":"23879657127a5882675d715bae8819e2"}}
