@@ -1,1 +1,1 @@
-{"id":"60c30f51456a53c96ed761cc4a70f7d2","fullName":"tests.api.account.test_account#test_register_success","name":"test_register_success","status":"passed","testResultsByEnv":{"default":"a5ce552523a162d9a0dacecfd8fd50ee"}}
+{"id":"60c30f51456a53c96ed761cc4a70f7d2","fullName":"tests.api.account.test_account#test_register_success","name":"test_register_success","status":"broken","testResultsByEnv":{"default":"08d330d1c51c788f1953620ad435578d"}}
