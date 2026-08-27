@@ -1,1 +1,1 @@
-{"id":"cfc528449002a9cb3e82f0ad44003b39","fullName":"tests.api.game.test_game_room#test_delete_pending_post_not_found_returns_410","name":"test_delete_pending_post_not_found_returns_410","status":"passed","testResultsByEnv":{"default":"f62c754661e5d947b5a5e069f320a5f9"}}
+{"id":"cfc528449002a9cb3e82f0ad44003b39","fullName":"tests.api.game.test_game_room#test_delete_pending_post_not_found_returns_410","name":"test_delete_pending_post_not_found_returns_410","status":"failed","testResultsByEnv":{"default":"943259a719ea4a88da238b6bbc5f748c"}}
