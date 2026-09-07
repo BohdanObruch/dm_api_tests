@@ -1,1 +1,1 @@
-{"id":"5b3d86f6844dd6d97519c4d916b2618c","fullName":"tests.api.messaging.test_messaging_chat#test_get_chat_messages_with_pagination","name":"test_get_chat_messages_with_pagination","status":"passed","testResultsByEnv":{"default":"2e0821ede174b91a136db29e29639b9d"}}
+{"id":"5b3d86f6844dd6d97519c4d916b2618c","fullName":"tests.api.messaging.test_messaging_chat#test_get_chat_messages_with_pagination","name":"test_get_chat_messages_with_pagination","status":"failed","testResultsByEnv":{"default":"78e1f2965d86c7b4103a7b4cce287d6a"}}

@@ -1,1 +1,1 @@
-{"id":"e759755cffa6b0b8613e95597b30be61","fullName":"tests.api.messaging.test_messaging_chat#test_post_chat_message_invalid_payload_returns_400","name":"test_post_chat_message_invalid_payload_returns_400","status":"passed","testResultsByEnv":{"default":"1efa1c93ca34638c9924c1c5ac7d41a8"}}
+{"id":"e759755cffa6b0b8613e95597b30be61","fullName":"tests.api.messaging.test_messaging_chat#test_post_chat_message_invalid_payload_returns_400","name":"test_post_chat_message_invalid_payload_returns_400","status":"failed","testResultsByEnv":{"default":"8fa790be352b75527d604087a53f4ba0"}}

@@ -1,1 +1,1 @@
-{"id":"4704bc5232f220c2a28ca2e828a9b558","fullName":"tests.api.game.test_game#test_get_popular_games","name":"test_get_popular_games","status":"passed","testResultsByEnv":{"default":"471fa489d5f72aa575a5141d7279d551"}}
+{"id":"4704bc5232f220c2a28ca2e828a9b558","fullName":"tests.api.game.test_game#test_get_popular_games","name":"test_get_popular_games","status":"failed","testResultsByEnv":{"default":"1d29e38fc62242af61e349ddba1bf87c"}}
