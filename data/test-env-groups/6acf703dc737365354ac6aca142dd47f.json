@@ -1,1 +1,1 @@
-{"id":"6acf703dc737365354ac6aca142dd47f","fullName":"tests.api.community.test_review#test_list_reviews","name":"test_list_reviews","status":"failed","testResultsByEnv":{"default":"de533ff00983e238fa3d14d70f45af84"}}
+{"id":"6acf703dc737365354ac6aca142dd47f","fullName":"tests.api.community.test_review#test_list_reviews","name":"test_list_reviews","status":"passed","testResultsByEnv":{"default":"5b39f6ede34b6dea0d387a746f06e490"}}
