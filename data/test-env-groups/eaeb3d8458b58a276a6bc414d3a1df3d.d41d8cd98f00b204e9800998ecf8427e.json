@@ -1,0 +1,1 @@
+{"id":"eaeb3d8458b58a276a6bc414d3a1df3d.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.game.test_game_room#test_put_room_for_non_existing_room_returns_documented_error","name":"test_put_room_for_non_existing_room_returns_documented_error","status":"passed","testResultsByEnv":{"default":"dd859308f82df919e52fbb43f9a1b3ac"}}

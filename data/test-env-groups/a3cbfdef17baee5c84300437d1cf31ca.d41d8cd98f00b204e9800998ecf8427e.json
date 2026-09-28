@@ -1,0 +1,1 @@
+{"id":"a3cbfdef17baee5c84300437d1cf31ca.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.game.test_game#test_delete_reader_without_token_returns_401_or_403","name":"test_delete_reader_without_token_returns_401_or_403","status":"passed","testResultsByEnv":{"default":"f63587f4426909e168852a4266ba24d8"}}

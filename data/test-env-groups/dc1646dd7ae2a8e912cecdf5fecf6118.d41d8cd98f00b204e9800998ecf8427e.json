@@ -1,0 +1,1 @@
+{"id":"dc1646dd7ae2a8e912cecdf5fecf6118.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.game.test_game_comment#test_delete_game_comment_without_token_returns_401_or_403","name":"test_delete_game_comment_without_token_returns_401_or_403","status":"passed","testResultsByEnv":{"default":"cfac5393fe0b8dc177413f04013e6c89"}}
