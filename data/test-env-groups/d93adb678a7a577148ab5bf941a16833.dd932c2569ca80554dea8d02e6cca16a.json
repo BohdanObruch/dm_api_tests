@@ -1,1 +1,1 @@
-{"id":"d93adb678a7a577148ab5bf941a16833.dd932c2569ca80554dea8d02e6cca16a","fullName":"tests.api.account.test_account#test_register_duplicate_returns_400","name":"test_register_duplicate_returns_400","status":"passed","testResultsByEnv":{"default":"eea69240b2ccd01ed423f00a75c82617"}}
+{"id":"d93adb678a7a577148ab5bf941a16833.dd932c2569ca80554dea8d02e6cca16a","fullName":"tests.api.account.test_account#test_register_duplicate_returns_400","name":"test_register_duplicate_returns_400","status":"passed","testResultsByEnv":{"default":"b6240271d978cb9f9b5ad55f03322695"}}
