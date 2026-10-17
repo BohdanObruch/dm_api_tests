@@ -1,1 +1,1 @@
-{"id":"693f26cce9aa891930a2965793a79a5d.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.common.test_search_tips#test_search_empty_result","name":"test_search_empty_result","status":"passed","testResultsByEnv":{"default":"73d574fc320341e7d8d060019c32a312"}}
+{"id":"693f26cce9aa891930a2965793a79a5d.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.common.test_search_tips#test_search_empty_result","name":"test_search_empty_result","status":"failed","testResultsByEnv":{"default":"d12e0b4390e65816032f035c5ec4008b"}}

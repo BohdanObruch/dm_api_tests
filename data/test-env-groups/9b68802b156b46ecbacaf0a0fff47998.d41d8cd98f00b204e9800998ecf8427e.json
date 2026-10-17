@@ -1,1 +1,1 @@
-{"id":"9b68802b156b46ecbacaf0a0fff47998.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.community.test_user#test_update_user_details_roundtrip","name":"test_update_user_details_roundtrip","status":"passed","testResultsByEnv":{"default":"bd21164d831b204a8f77581dec02de53"}}
+{"id":"9b68802b156b46ecbacaf0a0fff47998.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.community.test_user#test_update_user_details_roundtrip","name":"test_update_user_details_roundtrip","status":"failed","testResultsByEnv":{"default":"f3d0250b7a1a9cafd1b8b38a241becfd"}}
