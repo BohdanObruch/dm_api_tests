@@ -1,1 +1,1 @@
-{"id":"e4bf73ae4c076fd60ba9b55c7c4c57e6.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.forum.test_forum#test_get_forum_moderators","name":"test_get_forum_moderators","status":"failed","testResultsByEnv":{"default":"686e118fe8644e1dca29026609505d83"}}
+{"id":"e4bf73ae4c076fd60ba9b55c7c4c57e6.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.forum.test_forum#test_get_forum_moderators","name":"test_get_forum_moderators","status":"passed","testResultsByEnv":{"default":"53bccc88a4916e68b2f0e8cf8f318f2b"}}
