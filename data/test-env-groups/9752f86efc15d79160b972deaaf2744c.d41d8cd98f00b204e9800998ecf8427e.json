@@ -1,1 +1,1 @@
-{"id":"9752f86efc15d79160b972deaaf2744c.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.game.test_game#test_get_tags","name":"test_get_tags","status":"passed","testResultsByEnv":{"default":"572a425f2248a419fb594dbbde068720"}}
+{"id":"9752f86efc15d79160b972deaaf2744c.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.game.test_game#test_get_tags","name":"test_get_tags","status":"failed","testResultsByEnv":{"default":"2769084e4871091613681fb41a2cd179"}}
