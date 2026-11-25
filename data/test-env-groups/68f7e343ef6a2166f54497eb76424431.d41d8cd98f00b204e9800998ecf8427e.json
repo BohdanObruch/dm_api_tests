@@ -1,1 +1,1 @@
-{"id":"68f7e343ef6a2166f54497eb76424431.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.game.test_game#test_get_own_games","name":"test_get_own_games","status":"broken","testResultsByEnv":{"default":"ccc74c7f0ab667822b5210f7eb564883"}}
+{"id":"68f7e343ef6a2166f54497eb76424431.d41d8cd98f00b204e9800998ecf8427e","fullName":"tests.api.game.test_game#test_get_own_games","name":"test_get_own_games","status":"passed","testResultsByEnv":{"default":"14739329e4e399a163849dda4df6f2f4"}}
